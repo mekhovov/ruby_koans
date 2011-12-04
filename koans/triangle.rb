@@ -14,7 +14,19 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+	array = [a, b, c]
+	array.each{|x| (fail TriangleError) if x <= 0}
+
+	3.times{|x| x = array.shift; (array[0] + array[1]) <= x ? fail(TriangleError) : (array << x)}
+
+  case
+    when a == b && b == c
+    	:equilateral
+    when a != b && b != c && c != a
+    	:scalene
+    else
+    	:isosceles
+    end
 end
 
 # Error class used in part 2.  No need to change this code.
